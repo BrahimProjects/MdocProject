@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2 d?c. 2013 15:32:28 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="domain">
+	<class name="PhoneNumber" table="PHONENUMBER">
+		<id name="idphone" type="long">
+			<column name="IDPHONE" />
+			<generator class="increment" />
+		</id>
+		<property name="phoneKind" type="java.lang.String">
+			<column name="PHONEKIND" />
+		</property>
+		<property name="phoneumber" type="java.lang.String">
+			<column name="PHONEUMBER" />
+		</property>
+
+		<many-to-one name="contact" class="Contact" column="ID"
+			unique="true" lazy="false" cascade="all" ></many-to-one>
+
+	</class>
+</hibernate-mapping>

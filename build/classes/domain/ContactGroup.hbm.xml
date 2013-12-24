@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2 d?c. 2013 14:23:48 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="domain">
+	<class name="ContactGroup" table="CONTACTGROUP">
+		<id name="groupid" type="int">
+			<column name="GROUPID" />
+			<generator class="increment" />
+		</id>
+		<property name="groupname" type="java.lang.String">
+			<column name="GROUPNAME" />
+		</property>
+
+		<set name="contacts" table="PARTICIPATION" lazy="false" >
+			<key column="groupid" />
+			<many-to-many class="Contact" column="id" />
+		</set>
+	</class>
+</hibernate-mapping>
